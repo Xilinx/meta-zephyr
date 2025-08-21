@@ -1,9 +1,9 @@
-SUMMARY = "Open AMP rpmsg mulit services"
-DESCRIPTION = "Open AMP rpmsg mulit services"
+SUMMARY = "Open AMP rpmsg multi services"
+DESCRIPTION = "Open AMP rpmsg multi services"
 
-include zephyr-sample.inc
+inherit zephyr-sample
 
-SRC_URI_ZEPHYR_OPEN_AMP_SYS_REF ?= "git:///github.com/OpenAMP/openamp-system-reference;protocol=https"
+SRC_URI_ZEPHYR_OPEN_AMP_SYS_REF ?= "git://github.com/OpenAMP/openamp-system-reference;protocol=https"
 
 BRANCH ?= "v2024.05"
 BRANCHARG = "${@['nobranch=1', 'branch=${BRANCH}'][d.getVar('BRANCH', True) != '']}"

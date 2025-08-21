@@ -8,7 +8,7 @@ inherit ${ZEPHYR_INHERIT_CLASSES}
 IMAGE_NO_MANIFEST = "1"
 
 ZEPHYR_TOOLCHAIN_VARIANT ?= "cross-compile"
-require zephyr-toolchain-${ZEPHYR_TOOLCHAIN_VARIANT}.inc
+require recipes-kernel/zephyr-kernel/zephyr-toolchain-${ZEPHYR_TOOLCHAIN_VARIANT}.inc
 
 ZEPHYR_MAKE_OUTPUT = "zephyr.elf"
 ZEPHYR_MAKE_BIN_OUTPUT = "zephyr.bin"
@@ -18,6 +18,11 @@ EXTRA_OECMAKE = "\
     -DZEPHYR_BASE=${ZEPHYR_BASE} \
     -DBOARD=${BOARD} \
     -DARCH=${ARCH} \
+    -DBOARD_DIR=${BOARD_DIR} \
+    -DARCH_DIR=${ARCH_DIR} \
+    -DBOARD_ROOT=${BOARD_ROOT} \
+    -DBOARD_EXTENSION_DIRS=${BOARD_EXTENSION_DIRS} \
+    -DSOC_ROOT=${SOC_ROOT} \
     -DZEPHYR_TOOLCHAIN_VARIANT=${ZEPHYR_TOOLCHAIN_VARIANT} \
     -DZEPHYR_MODULES=${ZEPHYR_MODULES} \
     "
